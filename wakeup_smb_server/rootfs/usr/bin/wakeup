@@ -1,0 +1,27 @@
+#!/usr/bin/with-contenv bashio
+
+CONFIG_PATH=/data/options.json
+
+target="$(bashio::config 'target')"
+targetMAC="$(bashio::config 'targetMAC')"
+pingInterval="$(bashio::config 'pingInterval')"
+
+wake () {
+    echo "Warte auf Paket"
+    tcpdump -i hassio dst $target and dst port 445 -c 1
+    awake $targetMAC
+    echo "WOL sent to $target at $targetMAC"
+return
+}
+
+while sleep $pingInterval; do
+varPing=`ping -s 1 -c 2 $target > /dev/null; echo $?`
+    if [ $varPing -eq 0 ]; 
+    then
+        :
+        #echo "ping success"
+    else
+        #echo "ping fail"
+        wake
+    fi
+done

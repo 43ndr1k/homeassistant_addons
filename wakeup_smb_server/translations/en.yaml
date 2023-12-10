@@ -1,0 +1,10 @@
+configuration:
+  target:
+    name: target
+    description: Which SMB server should be reached. IP address of the server.
+  targetMAC:
+    name: targetMAC
+    description: MAC Adress from SMB Server  
+  pingInterval: 
+    name: pingInterval
+    description: At what interval should the server be pinged?

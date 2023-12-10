@@ -1,0 +1,4 @@
+# https://developers.home-assistant.io/docs/add-ons/repository#repository-configuration
+name: 43ndr1k Home Assistant add-on repository
+url: 'https://github.com/43ndr1k/homeassistant_addons'
+maintainer: Awesome Maintainer <hendrik@it-sawade.de>

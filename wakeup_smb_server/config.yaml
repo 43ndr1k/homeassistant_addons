@@ -1,0 +1,28 @@
+# https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
+name: SMB-Server Wakeup
+version: "1.0.1"
+slug: "wakeup_smb_server"
+description: Wakeup the SMB-Server when Connect from Homeassistant to SMB
+arch:
+  - armhf
+  - armv7
+  - aarch64
+  - amd64
+  - i386
+init: false
+host_dbus: true
+host_network: true
+hassio_role: manager
+apparmor: false
+privileged:
+  - NET_ADMIN
+  - SYS_ADMIN
+  - SYS_RAWIO
+options:
+  target: null
+  targetMAC: null
+  pingInterval: null
+schema:
+  target: "str"
+  targetMAC: "str"
+  pingInterval: "int"
